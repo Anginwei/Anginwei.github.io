@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>test</title>
+	</head>
+	<style type="text/css">
+
+	</style>
+
+
+	<body>
+		<div id = "result">
+
+		</div>
+	</body>
+
+	<script src="dmc.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$.Ajax.get("data.txt", function(ret){
+            $("#result").html(ret);
+        });
+	</script>
+
+</html>
