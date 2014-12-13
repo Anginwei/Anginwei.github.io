@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/content.css" />
+
+	<body>
+		<div class="logo">
+			<img src="img/DMC_Logo.png" />
+		</div>
+		<div class="wrap">
+			<h2>简介</h2>
+			<p>dmc是一个微型的JavaScipt库，名字取自DevilMayCry。</p>
+			<p>dmc的大多数API都仿照JQuery， 使用方法跟JQuery基本一致，虽然一些API的名字跟JQuery一样，但是参数跟返回不同，务必注意。</p>
+			<p>JQuery具有的特性，dmc也具有，比如链式调用，不一一列出。 dmc的选择器引擎是一个叫<code>mini</code>的引擎，支持大多数CSS2选择器，不支持<code>&nbsp;+&nbsp;</code>选择器。</p>
+			<p>dmc对3个原生JavaScript方法有相同的实现，分别是<code>Function.bind</code>、<code>Array.forEach</code>、<code>String.trim</code>。</p>
+			<p>如果浏览器不支持以上3个方法，则dmc会对原生对象进行扩充；支持的话，则不扩充。</p>
+			<h2>获取</h2>
+			<p>GitHub有源代码，可以随意使用，欢迎提出改进意见，<a href="https://github.com/Anginwei/dmc" target="_blank">dmc代码仓库</a>。</p>
+			<h2>开始</h2>
+			<p>dmc使用$作为替代符号，如果页面中有其他JS库使用了$，则dmc不会覆盖$。</p>
+			<p>通过选择器字符串获取dom元素集合后，就可以像JQuery一样调用实例方法了。</p>
+			<pre>dmc("#test").addClass("nav");</pre>
+			<p>dmc初始化方法有两个参数<code>dmc(selector, context)</code>。</p>
+			<p><code>selector</code>类型可以为选择器字符串、dom元素、dom元素数组、dmc对象。</p>
+			<p><code>context</code>作为选择器的上下文对象，不指定的话为<code>document</code>。因此，可以像下面一样指定选择范围</p>
+			<pre>var main = document.getElementByName("main");<br />$(".nav", main);</pre>
+			<h2>许可</h2>
+			<p>许可？这是什么东西？What the fuck is this?</p>
+		</div>
+	</body>
+
+</html>
