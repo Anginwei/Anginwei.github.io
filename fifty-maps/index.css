@@ -1,0 +1,41 @@
+body {
+	box-sizing: border-box;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	background-color: #4BC79F;
+	/* 临时 */
+	padding-top: 30px;
+}
+
+/* 手机屏幕 */
+@media screen and (max-width: 768px) {}
+
+/* 平板屏幕 */
+@media screen and (min-width: 769px) and (max-width: 992px) {}
+
+/* 桌面屏幕 */
+@media screen and (min-width: 993px) {
+	.container {
+		margin: 0 auto;
+		padding: 0 15px;
+		width: 960px;
+    	font-size: 1.6em;
+    	color: #6f6f6f;
+	}
+}
+
+table {
+	margin: 0 auto 20px;
+	border: 1px solid ##F7ECB5;
+	background-color: #f1f1f1;
+	text-align: center;
+	vertical-align: center;
+}
+
+table>tbody>tr:first-child, table>tbody>tr>td:first-child {
+    background-color: #F7ECB5;
+}
+
+table>tbody>tr>td {
+	padding: 10px 15px;
+}
