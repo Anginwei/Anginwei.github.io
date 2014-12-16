@@ -7,35 +7,77 @@ body {
 	padding-top: 30px;
 }
 
-/* 手机屏幕 */
-@media screen and (max-width: 768px) {}
+/* Clearfix */
+.cf:before, .cf:after {
+  content:"";
+  display:table;
+}
 
-/* 平板屏幕 */
-@media screen and (min-width: 769px) and (max-width: 992px) {}
-
-/* 桌面屏幕 */
-@media screen and (min-width: 993px) {
-	.container {
-		margin: 0 auto;
-		padding: 0 15px;
-		width: 960px;
-    	font-size: 1.6em;
-    	color: #6f6f6f;
-	}
+.cf:after {
+  clear:both;
 }
 
 table {
-	margin: 0 auto 20px;
-	border: 1px solid ##F7ECB5;
+    float: left;
 	background-color: #f1f1f1;
 	text-align: center;
 	vertical-align: center;
 }
 
-table>tbody>tr:first-child, table>tbody>tr>td:first-child {
-    background-color: #F7ECB5;
+/* 设置拼写背景 */
+table>tbody>tr:first-child,
+table>tbody>tr>td:first-child {
+	background-color: #F7ECB5;
 }
 
 table>tbody>tr>td {
 	padding: 10px 15px;
+	border: 1px solid #ddd;
+}
+
+table>tbody>tr>td:hover {
+    background-color: #FFDFEA;
+    transition: background-color .2s;
+}
+
+/* 手机屏幕 */
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 0 auto;
+        padding: 0 15px;
+        width: 95%;
+        font-size: 1.8em;
+        color: #6f6f6f;
+    }
+    table {
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+/* 平板屏幕 */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .container {
+        margin: 0 auto;
+        padding: 0 15px;
+        width: 95%;
+        font-size: 1.6em;
+        color: #6f6f6f;
+    }
+    table {
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+/* 桌面屏幕 */
+@media screen and (min-width: 993px) {
+    .container {
+        margin: 0 auto;
+        padding: 0 15px;
+        width: 960px;
+        font-size: 1.4em;
+        color: #777;
+        text-shadow: 1px 1px 0 #fff;
+    }
 }
