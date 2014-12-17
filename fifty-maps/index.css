@@ -8,17 +8,16 @@ body {
 }
 
 /* Clearfix */
-.cf:before, .cf:after {
-  content:"";
-  display:table;
-}
-
+.cf:before,
 .cf:after {
-  clear:both;
+	content: "";
+	display: table;
 }
-
+.cf:after {
+	clear: both;
+}
 table {
-    float: left;
+	float: left;
 	background-color: #f1f1f1;
 	text-align: center;
 	vertical-align: center;
@@ -29,51 +28,44 @@ table>tbody>tr:first-child,
 table>tbody>tr>td:first-child {
 	background-color: #F7ECB5;
 }
-
 table>tbody>tr>td {
 	padding: 10px 15px;
 	border: 1px solid #ddd;
 }
-
 table>tbody>tr>td:hover {
-    background-color: #FFDFEA;
-    transition: background-color .2s;
-}
-
-/* 手机屏幕 */
-@media screen and (max-width: 768px) {
-    .container {
-        margin: 0 auto;
-        width: 95%;
-        color: #6f6f6f;
-    }
-    table {
-        float: none;
-        margin: 0 auto 20px;
-    }
-}
-
-/* 平板屏幕 */
-@media screen and (min-width: 769px) and (max-width: 992px) {
-    .container {
-        margin: 0 auto;
-        width: 95%;
-        font-size: 1.6em;
-        color: #6f6f6f;
-    }
-    table {
-        float: none;
-        margin: 0 auto;
-    }
+	background-color: #FFDFEA;
+	transition: background-color .2s;
 }
 
 /* 桌面屏幕 */
-@media screen and (min-width: 993px) {
-    .container {
-        margin: 0 auto;
-        width: 960px;
-        font-size: 1.4em;
-        color: #777;
-        text-shadow: 1px 1px 0 #fff;
-    }
+.container {
+    margin: 0 auto;
+    width: 960px;
+    font-size: 1.4em;
+    color: #6f6f6f;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+/* 手机屏幕 */
+@media screen and (max-width: 480px) {
+	.container {
+		width: 95%;
+		font-size: 1em;
+	}
+	table {
+		float: none;
+		margin: 0 auto 20px;
+	}
+}
+
+/* 平板屏幕 */
+@media screen and (min-width:481px) and (max-width: 990px) {
+	.container {
+		width: 95%;
+		font-size: 1.6em;
+	}
+	table {
+		float: none;
+		margin: 0 auto;
+	}
 }
