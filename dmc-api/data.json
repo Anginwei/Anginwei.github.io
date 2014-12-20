@@ -606,7 +606,7 @@
         "usage": [
             {
                 "intro": "测试请求状态是否为指定值",
-                "syntax": "$.Ajax.isReady(xhr, status, readState)",
+                "syntax": "$.Ajax.isReady(xhr, status, readyState)",
                 "arg": [
                     {
                         "_name": "xhr",
