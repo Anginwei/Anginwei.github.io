@@ -1,0 +1,296 @@
+/*
+ * 全局
+ */
+* {
+    .box-sizing(border-box);
+}
+*:before,
+*:after {
+    .box-sizing(border-box);
+}
+
+body {
+    font-family: @font-family-base;
+    font-size: @font-size-base;
+    line-height: @line-height-inline;
+    color: @text-color;
+    background-color: @body-bg-color;
+}
+
+/*
+ * 文字排版
+ */
+
+//==== 标题
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: @line-height-block / 2;
+    small {
+        font-weight: normal;
+        line-height: 1;
+        color: lighten(@text-color, 15%);
+    }
+}
+
+h1, h2, h3 {
+    margin-top: @line-height-block;
+    small {
+        font-size: 65%;
+    }
+}
+
+h4, h5, h6 {
+    margin-top: @line-height-block / 2;
+    small {
+        font-size: 75%;
+    }
+}
+
+h1 { font-size: @font-size-h1; }
+h2 { font-size: @font-size-h2; }
+h3 { font-size: @font-size-h3; }
+h4 { font-size: @font-size-h4; }
+h5 { font-size: @font-size-h5; }
+h6 { font-size: @font-size-h6; }
+
+//==== 主体文本
+
+p {
+    margin: 0 0 @line-height-block / 2;
+}
+
+small {
+    font-size: ceil(@font-size-base * 0.85);
+}
+
+dl {
+    margin-top: 0;
+}
+
+dd {
+    margin-left: 0;
+}
+
+/*
+ * 表单，多引自bootstrap
+ */
+
+//==== 基础样式
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    // Chrome 与 Firefox 对fieldsets设置了 `min-width: min-content;`，
+    // 因此要重新修正他们的表现
+    min-width: 0;
+    &[disabled] {
+        background-color: @input-bg-color-disabled;
+    }
+}
+
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: @line-height-block / 2;
+    font-size: (@font-size-base * 1.5);
+    line-height: inherit;
+    color: lighten(@text-color, 10%);
+    border: 0;
+    border-bottom: 1px solid #CCC;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%; // 修正IE8对长内容的表现问题
+    margin-bottom: 5px;
+}
+
+textarea {
+    height: auto;
+}
+
+select {
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+input {
+    height: @input-height;
+    margin-bottom: @input-height / 2;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: @input-bg-color;
+    border: 1px solid @input-border-color;
+    color: @input-text-color;
+
+    &:focus {
+        border-color: @input-border-color-focus;
+    }
+
+    &[disabled],
+    &[readonly] {
+        background-color: @input-bg-color-disabled;
+    }
+}
+
+//==== 不同浏览器下的表现一致性，多取自bootstrap
+
+// 覆盖normalize中的content-box问题
+input[type="search"] {
+    .box-sizing(border-box);
+    -webkit-appearance: none;
+}
+
+// 调整radio与checkbox的位置
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 4px 0 0;
+    margin-top: 1px \9; // IE8-9
+    line-height: normal;
+    // IE7-8
+    border: none;
+    background: none;
+}
+
+// 调整file的高度，匹配input的高度
+input[type="file"] {
+    display: block;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+// 调整range的表现，使其与一般控件一致
+input[type="range"] {
+    display: block;
+    width: 100%;
+}
+
+// 调整multiple与size的高度
+select[multiple],
+select[size] {
+    height: auto;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+    line-height: @input-height;
+    // 修正IE8+丢失文本对齐
+    line-height: @line-height-inline ~"\0";
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    outline: thin dotted;
+    // WebKit
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+output {
+    display: block;
+    padding-top: (@padding-vertical + 1);
+    font-size: @font-size-base;
+    line-height: @line-height-inline;
+    color: @input-text-color;
+}
+
+//==== radio与checkbox包裹类
+.radio,
+.checkbox {
+    position: relative;
+    display: block;
+    min-height: @line-height-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    > div {
+        display: inline;
+        margin-right: 10px;
+        padding-left: 20px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        position: absolute;
+        margin-left: -20px;
+        margin-top: -5px;
+    }
+}
+
+/*
+ * 链接
+ */
+a {
+    color: @link-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: @link-hover-color;
+        text-decoration: underline;
+    }
+}
+
+/*
+ * 表格
+ */
+table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: @line-height-block;
+    background-color: @table-bg;
+    // 单元格
+    > thead, > tbody, > tfoot {
+        > tr {
+            > th, > td {
+                padding: @table-cell-padding;
+                line-height: @line-height-inline;
+                vertical-align: center;
+                border-top: 1px solid @table-border-color;
+            }
+        }
+    }
+    // 表头
+    > thead > tr >th {
+        border-bottom: 2px solid @table-border-color;
+    }
+    // 移除thead上边框
+    > caption + thead, > colgroup + thead, > thead:first-child {
+        > tr:first-child {
+            > th, > td {
+                border-top: none;
+            }
+        }
+    }
+}
+
+th {
+    text-align: left;
+}
+
+/*
+ * 其他
+ */
+hr {
+    margin-top: @line-height-block;
+    margin-bottom: @line-height-block;
+    border: 0;
+    border-top: 1px solid @hr-color;
+}
+
+.clearfix { .clearfix(); }

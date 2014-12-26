@@ -1,0 +1,46 @@
+body {
+	background: #fdfdfd;
+}
+
+/* header */
+.logo {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100px;
+	background-color: #333;
+	background: linear-gradient(to bottom, #45484d 0%, #000000 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000', GradientType=0);
+}
+.logo>img {
+	margin-left: 90px;
+	width: 160px;
+	height: 96px;
+}
+
+/* 内容 */
+dl {
+    margin: 0;
+}
+.wrap {
+	width: 960px;
+	padding-top: 100px;
+	padding-left: 120px;
+}
+.wrap p {
+	font-size: 16px;
+}
+.wrap h2 {
+	color: #D43F3A;
+}
+.wrap h3 {
+	font-size: 16px;
+	font-weight: bold;
+}
+pre:hover {
+	border-color: #D43F3A;
+	background-color: #fafafa;
+	transition: background-color .5s, border-color .5s;
+}

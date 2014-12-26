@@ -1,0 +1,64 @@
+//==== 全局颜色
+
+//** 配色方案
+@primary-color: #0CBC9D;
+@secondary-color:  #1C9AD5;
+
+//** 背景
+@body-bg-color: #FFF;
+//** 文本
+@text-color: #333;
+//** 链接
+@link-color: lighten(@secondary-color, 10%);
+@link-hover-color: @secondary-color;
+//** 圆角
+@border-radius: 4px;
+//** 水平线
+@hr-color: @text-color;
+
+
+//==== 文字排版
+
+@font-family-base: "microsoft yahei", simhei, simsun, arial;
+//** 代码字体，来自bootstrap
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+//** 字体大小，来自bootstrap
+@font-size-base: 14px;
+
+@font-size-h1: floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2: floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5: @font-size-base;
+@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+
+//** 行内组件行高
+@line-height-inline: 1.5;
+//** 块组件行高
+@line-height-block: floor((@font-size-base * @line-height-inline)); // ~20px
+
+
+//==== 填充
+
+@padding-vertical: 5px;
+@padding-horizontal: 10px;
+
+
+//==== 表单
+
+//** 颜色
+@input-bg-color: #FDFDFD;
+@input-bg-color-disabled: darken(@input-bg-color, 5%);
+@input-border-color: #CCC;
+@input-border-color-focus: @primary-color;
+@input-text-color: #555;
+
+//** 高度
+@input-height: @line-height-block + @padding-vertical*2;
+
+
+//==== 表格
+
+@table-cell-padding: 8px;
+@table-bg: transparent;
+@table-border-color: #EEE;

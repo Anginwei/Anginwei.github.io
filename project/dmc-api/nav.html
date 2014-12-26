@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<style type="text/css">
+			@font-face {
+				font-family: 'FontAwesome';
+				src: url('font/fontawesome-webfont.eot?v=3.2.1');
+				src: url('font/fontawesome-webfont.eot?#iefix&v=3.2.1') format('embedded-opentype'), url('font/fontawesome-webfont.woff?v=3.2.1') format('woff'), url('fonts/fontawesome-webfont.ttf?v=3.2.1') format('truetype'), url('font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.1') format('svg');
+			}
+			body {
+				color: #eee;
+				text-shadow: 2px 2px 0 #000;
+				background: #333;
+				overflow-y: scroll;
+			}
+			.title {
+				display: block;
+				color: #E04642;
+				text-align: center;
+				font-size: 20px;
+			}
+			.title:hover {
+				text-indent: 2px;
+				text-decoration: none;
+				color: inherit;
+				transition: color .2s, text-indent, .2s;
+			}
+			li>a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				padding: 3px 20px;
+				font-size: 16px;
+				color: #eee;
+			}
+			li>a:hover {
+				color: #D43F3A;
+				text-decoration: none;
+				text-indent: 2px;
+				transition: color .2s, text-indent, .2s;
+			}
+			li>a:active {
+				color: #eee;
+				text-indent: 10px;
+				text-decoration: none;
+			}
+			li>a:focus {
+				color: #eee;
+				text-decoration: none;
+			}
+			.main-nav {
+				cursor: pointer;
+				-moz-user-select: none;
+			}
+			.main-nav>li {
+				margin-top: 5px;
+				padding: 10px 0;
+				background-color: #D43F3A;
+				font-size: 18px;
+			}
+			.main-nav>li:before {
+				margin: 0 10px;
+				font-family: 'FontAwesome';
+				content: "\f0c9";
+			}
+			.main-nav>li:after {
+				float: right;
+				margin-right: 20px;
+				font-family: 'FontAwesome';
+				font-size: 16px;
+				content: "\f077";
+			}
+			.fold-effect-icon:after {
+				content: "\f078" !important;
+			}
+			.sec-nav {
+				overflow: hidden;
+				transition: height .5s;
+			}
+			.sec-nav>li>a:before {
+				margin-right: 8px;
+				content: "•";
+			}
+			.sec-nav>li>a:after {
+				float: right;
+				font-family: 'FontAwesome';
+				content: "\f0a9";
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1><a class="title" href="well.html" target="content">dmc概览</a></h1>
+		<ul class="main-nav">
+			<li>dom元素</li>
+			<li>筛选</li>
+			<li>属性操作</li>
+			<li>文档操作</li>
+			<li>css操作</li>
+			<li>遍历</li>
+			<li>效果</li>
+			<li>事件</li>
+			<li>其他</li>
+			<li>静态方法</li>
+			<li>dmc.Ajax</li>
+			<li>dmc.Event</li>
+		</ul>
+	</body>
+
+	<script src="js/dmc.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		(function($) {
+			var methodList = [],
+				start = 0,
+				tag,
+				// [dom元素,筛选,属性操作,文档操作,css操作,遍历,效果,事件,其他,全局,Ajax,Event]
+				categoryLength = [3, 4, 7, 6, 1, 1, 2, 2, 1, 7, 4, 6],
+				mainNav = $(".main-nav>li").list();
+
+			// 生成未分割的methodList
+			(function(objList, exclude) {
+				objList.forEach(function(obj, i) {
+					for (var property in obj) {
+						if (exclude[i]) {
+							// 过滤排除掉的属性名
+							!exclude[i].test(property) && methodList.push(property);
+						} else {
+							// 不需要排除，直接添加
+							methodList.push(property);
+						}
+					}
+				});
+			})([dmc.fn, dmc, dmc.Ajax, dmc.Event], [/(init|extend|constructor)/, /(fn|Ability|error|Ajax|Event)/]);
+			// 生成按指定长度分割的methodList二维数组
+			categoryLength.forEach(function(len) {
+				methodList.splice(start, len, methodList.slice(start, start + len));
+				start++;
+			});
+			// 生成二级导航
+			methodList.forEach(function(category, i) {
+				var temp = "";
+				tag = "<li><a href=\"#\" target=\"content\">*</a></li>".replace("#",
+					i <= 8 && "content.html#instance.*" ||
+					i == 9 && "content.html#static.*" ||
+					i == 10 && "content.html#ajax.*" ||
+					i == 11 && "content.html#event.*");
+				// 生成一个分类的列表项
+				category.forEach(function(name) {
+					temp += tag.replace(/\*/g, name);
+				});
+				$(mainNav[i]).after("<ul class=\"sec-nav\">*</ul>".replace("*", temp), "out");
+			});
+			mainNav = $(".main-nav>li");
+			// 添加事件
+			mainNav.click(function() {
+				// 选中相应的二级导航
+				var temp = $(this).next();
+				if (temp.css("height") == "0px") {
+					temp.css("height", temp.data("height"));
+				} else {
+					temp.css("height", "0");
+				}
+				// 切换折叠状态
+				$(this).toggleClass("fold-effect-icon");
+			});
+			// 修复动画效果
+			mainNav.attr("onselectstart", "return false").next().each(function(i, elem) {
+				$this = $(elem);
+				// 将由auto计算得出的height重设一次
+				$this.css("height", $this.css("height"));
+				// 保存初始height
+				$this.data("height", $this.css("height"));
+			});
+		})(dmc);
+	</script>
+
+</html>

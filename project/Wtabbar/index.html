@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Wtabbar</title>
+		<!--[if lte IE8]>
+            <script type="text/javascript">
+                alert("页面的语法高亮库不支持使用IE8及以下版本，请更换浏览器，抵制旧版IE,支持标准");
+            </script>
+        <![endif]-->
+		<link rel="stylesheet" type="text/css" href="../../css/default.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+		<link rel="stylesheet" type="text/css" href="index.css" />
+	</head>
+
+	<body>
+	    <!-- header -->
+		<header class="page-header">
+			<div class="container">
+				<div class="header-center">
+					<h1>Wtabbar</h1>
+					<p>多实例标签栏插件，可动态创建或删除标签</p>
+				</div>
+			</div>
+		</header>
+		<!-- content -->
+		<div class="container">
+			<section>
+				<h2>引入</h2>
+				<p>引入Wtabbar之前务必先引入JQuery</p>
+				<pre><code class="language-markup">&lt;script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="Wtabbar.js"&gt;&lt;/script&gt;</code></pre>
+			</section>
+			<section>
+				<h2>配置参数</h2>
+				<p>可以传入一个配置对象，覆盖默认配置，跟大多是JQuery插件一样，以下是默认设置：</p>
+				<pre><code class="language-javascript">{
+    activeClass: "active", // 处于激活状态标签的类名
+    curItem: 0, // 当前默认激活状态标签的索引位置
+    referName: "data-refer", // 多个实例中，关联内容块与标签栏的属性名，推荐HTML5的data-*，其他名称也可以正常使用
+    blockName: "data-name", // 区别不同标签内容的属性名，去标签的文本内容一致
+    switchMode: "click" // 标签切换模式，"click"或"mouseover"
+}</code></pre>
+			</section>
+			<section>
+				<h2>HTML结构</h2>
+				<p>Wtabbar对应的HTML应有如下结构，类名为相同的ul可以有多个，但data-refer属性应一一对应</p>
+				<pre><code class="language-markup">&lt;!-- 标签列表 --&gt;
+&lt;ul class="tb" data-refer="demoBlock1"&gt;
+    &lt;li&gt;item1&lt;/li&gt;
+    &lt;li&gt;item2&lt;/li&gt;
+    &lt;li&gt;item3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- 标签内容块 --&gt;
+&lt;div data-refer=&quot;demoBlock1&quot;&gt;
+	&lt;div data-name=&quot;item1&quot;&gt;content1&lt;/div&gt;
+	&lt;div data-name=&quot;item2&quot;&gt;content2&lt;/div&gt;
+	&lt;div data-name=&quot;item3&quot;&gt;content3&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 标签列表 --&gt;
+&lt;ul class="tb" data-refer="demoBlock2"&gt;
+    &lt;li&gt;item1&lt;/li&gt;
+    &lt;li&gt;item2&lt;/li&gt;
+    &lt;li&gt;item3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- 标签内容块 --&gt;
+&lt;div data-refer=&quot;demoBlock2&quot;&gt;
+    &lt;div data-name=&quot;item1&quot;&gt;content1&lt;/div&gt;
+    &lt;div data-name=&quot;item2&quot;&gt;content2&lt;/div&gt;
+    &lt;div data-name=&quot;item3&quot;&gt;content3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</section>
+			<section>
+				<h2>初始化</h2>
+				<p>可以像下面这样初始化Wtabbar，均使用默认设置。</p>
+				<pre><code class="language-javascript"><span>$(".tb").Wtabbar();</span></code></pre>
+				<p>这样，一个最简单的Wtabbar就可以工作了，demo效果如下：</p>
+				<div>
+					<ul class="tb" data-refer="demoBlock1">
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+					</ul>
+					<div data-refer="demoBlock1">
+						<div data-name="item1">content1</div>
+						<div data-name="item2">content2</div>
+						<div data-name="item3">content3</div>
+					</div>
+					<ul class="tb" data-refer="demoBlock2">
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+					</ul>
+					<div data-refer="demoBlock2">
+						<div data-name="item1">content1</div>
+						<div data-name="item2">content2</div>
+						<div data-name="item3">content3</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>动态修改标签</h2>
+				<p>这种情况多应用于后台管理系统，可以像浏览器一样增加标签数，已存在的标签不会重复创建。标签内容块可以先写好，也可以动态生成。以下是HTML结构：</p>
+				<pre><code class="language-markup">&lt;!-- 标签列表 --&gt;
+&lt;ul class="tb" data-refer="demoBlock3"&gt;
+    &lt;li&gt;item1&lt;/li&gt;
+    &lt;li&gt;item2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- 标签内容块 --&gt;
+&lt;div data-refer=&quot;demoBlock3&quot;&gt;
+    &lt;div data-name=&quot;item1&quot;&gt;content1&lt;/div&gt;
+    &lt;div data-name=&quot;item2&quot;&gt;content2&lt;/div&gt;
+    &lt;div data-name=&quot;item3&quot;&gt;content3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+				<p>Wtabbar的API方法包括create(name) remove(name)，内容块的data-name属性应与方法参数对应，否则切换无效。应注意JQuery选择的范围。</p>
+				<pre><code class="language-javascript">$(".tb:eq(2)").Wtabbar("create", "item3");</code></pre>
+				<p>说好的demo来了：</p>
+				<div>
+                    <ul class="tb" data-refer="demoBlock3">
+                        <li>item1</li>
+                        <li>item2</li>
+                    </ul>
+                    <div data-refer="demoBlock3">
+                        <div data-name="item1">content1</div>
+                        <div data-name="item2">content2</div>
+                        <div data-name="item3">content3</div>
+                    </div>
+                    <button>创建item3</button>
+                    <button>删除item3</button>
+				</div>
+			</section>
+			<!-- footer -->
+			<footer>
+				<hr />
+				<p>Created by <a href="anginwei.github.io">Anginwei</a>
+				</p>
+			</footer>
+		</div>
+	</body>
+
+	<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+	<script src="../../js/prism.js" type="text/javascript"></script>
+	<script src="Wtabbar.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(".tb").Wtabbar();
+		$("button:eq(0)").click(function () {
+			$(".tb:eq(2)").Wtabbar("create", "item3");
+		});
+		$("button:eq(1)").click(function () {
+            $(".tb:eq(2)").Wtabbar("remove", "item3");
+        });
+	</script>
+
+</html>

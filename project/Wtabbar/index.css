@@ -1,0 +1,95 @@
+/* 全局 */
+body {
+    background-color: #FAFAFA;
+    text-shadow: 1px 1px 0 #FFF;
+}
+
+h2 {
+}
+
+/* 页头 */
+.page-header {
+    width: 100%;
+    padding-bottom: 20px;
+    background-color: #2DBAA2;
+}
+
+.page-header h1 {
+    font-size: 4em;
+    color: #1C9AD5;
+    text-shadow: 0 5px 20px #FFFF00;
+}
+
+.page-header p {
+    font-size: 2em;
+    color: #666;
+    text-shadow: none;
+}
+
+.page-header > .container > .header-center {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+/* 内容 */
+.tb {
+    padding-left: 0;
+    margin: 20px 0 -1px 0;
+    list-style: none;
+}
+
+.tb > li {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.tb > li:hover {
+    color: #888;
+}
+
+.tb > .active {
+    border: 1px solid #DDD;
+    border-bottom-color: #F0F0F0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: #F0F0F0;
+}
+
+div[data-refer] {
+    height: 43px;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    border: 1px solid #DDD;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: #F0F0F0;
+}
+
+.container button {
+    margin-right: 20px;
+    padding: 8px 15px;
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+}
+
+
+/* 内容容器，默认桌面设备 */
+.container {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 响应布局 */
+@media screen and (max-width: 960px) {
+    .container {
+        width: 100%;
+        padding: 0 5%;
+    }
+}

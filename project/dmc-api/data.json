@@ -1,0 +1,744 @@
+[
+    {
+        "name": "get",
+        "usage": [
+            {
+                "intro": "返回匹配结果中指定索引的dom元素",
+                "syntax": "$(selector).get(index)",
+                "arg": [
+                    {
+                        "_name": "index",
+                        "_type": "Number",
+                        "_intro": "元素位于结果集合中的位置，从0开始"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "list",
+        "usage": [
+            {
+                "intro": "返回匹配结果dom元素数组",
+                "syntax": "$(selector).list()"
+            }
+        ]
+    }, {
+        "name": "length",
+        "usage": [
+            {
+                "intro": "返回匹配元素的个数",
+                "syntax": "$(selector).length()"
+            }
+        ]
+    }, {
+        "name": "eq",
+        "usage": [
+            {
+                "intro": "将匹配结果缩减到指定索引",
+                "syntax": "$(selector).eq(index)",
+                "arg": [
+                    {
+                        "_name": "index",
+                        "_type": "Number",
+                        "_intro": "集合中的位置，从0开始"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "slice",
+        "usage": [
+            {
+                "intro": "将匹配结果缩减至指定范围",
+                "syntax": "$(selector).slice(start, end)",
+                "arg": [
+                    {
+                        "_name": "start",
+                        "_type": "Number",
+                        "_intro": "开始位置，索引从0开始"
+                    }, {
+                        "_name": "end",
+                        "_type": "Number",
+                        "_intro": "结束位置"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "next",
+        "usage": [
+            {
+                "intro": "将所有匹配元素修改为其下一个同胞元素",
+                "syntax": "$(selector).next()"
+            }
+        ]
+    }, {
+        "name": "previous",
+        "usage": [
+            {
+                "intro": "将所有匹配元素修改为其上一个同胞元素",
+                "syntax": "$(selector).previous()"
+            }
+        ]
+    }, {
+        "name": "attr",
+        "usage": [
+            {
+                "intro": "返回匹配结果中第一个元素的属性值",
+                "syntax": "$(selector).attr(property)",
+                "arg": [
+                    {
+                        "_name": "property",
+                        "_type": "String",
+                        "_intro": "属性名"
+                    }
+                ]
+            }, {
+                "intro": "对匹配结果所有元素设置属性值",
+                "syntax": "$(selector).attr(property, value)",
+                "arg": [
+                    {
+                        "_name": "property",
+                        "_type": "String",
+                        "_intro": "属性名，如果不存在，则添加；否则修改"
+                    }, {
+                        "_name": "value",
+                        "_type": "String",
+                        "_intro": "属性值"
+                    }
+                ]
+            }, {
+                "intro": "对匹配结果所有元素设置多个属性值",
+                "syntax": "$(selector).attr({property: value[, property: value]})",
+                "arg": [
+                    {
+                        "_name": "{property: value}",
+                        "_type": "Object",
+                        "_intro": "包含要设置的属性值 名/值 对象\n如： {\"height\": \"15\", \"width\": \"16\"}"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "removeAttr",
+        "usage": [
+            {
+                "intro": "删除匹配元素中的属性",
+                "syntax": "$(selector).removeAttr(name)",
+                "arg": [
+                    {
+                        "_name": "name",
+                        "_type": "String",
+                        "_intro": "属性名"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "addClass",
+        "usage": [
+            {
+                "intro": "为匹配元素添加类，多个类名用空格隔开",
+                "syntax": "$(selector).addClass(name)",
+                "arg": [
+                    {
+                        "_name": "name",
+                        "_type": "String",
+                        "_intro": "类名，多个类名用空格隔开"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "removeClass",
+        "usage": [
+            {
+                "intro": "为匹配元素删除类，多个类名用空格隔开",
+                "syntax": "$(selector).removeClass(name)",
+                "arg": [
+                    {
+                        "_name": "name",
+                        "_type": "String",
+                        "_intro": "类名，多个类名用空格隔开"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "toggleClass",
+        "usage": [
+            {
+                "intro": "为匹配元素添加或删除类，多个类名用空格隔开，存在则添加否则删除",
+                "syntax": "$(selector).toggleClass(name)",
+                "arg": [
+                    {
+                        "_name": "name",
+                        "_type": "String",
+                        "_intro": "类名，多个类名用空格隔开"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "hasClass",
+        "usage": [
+            {
+                "intro": "测试匹配元素是否包含类，所有元素都通过测试，方法才返回true",
+                "syntax": "$(selector).hasClass(name)",
+                "arg": [
+                    {
+                        "_name": "name",
+                        "_type": "String",
+                        "_intro": "类名"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "value",
+        "usage": [
+            {
+                "intro": "返回匹配结果中第一个元素的value值，主要用于表单控件",
+                "syntax": "$(selector).value()"
+            }, {
+                "intro": "返回匹配结果中第一个元素的value值，主要作用于表单控件",
+                "syntax": "$(selector).value(value)",
+                "arg": [
+                    {
+                        "_name": "value",
+                        "_type": "String",
+                        "_intro": "属性值"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "html",
+        "usage": [
+            {
+                "intro": "返回匹配结果中第一个元素的innerHTML值",
+                "syntax": "$(selector).html()"
+            }, {
+                "intro": "对匹配结果所有元素设置innerHTML值",
+                "syntax": "$(selector).html(value)",
+                "arg": [
+                    {
+                        "_name": "value",
+                        "_type": "String",
+                        "_intro": "innerHTML值，特殊符号需要转义"
+                    }
+                ]
+            }, {
+                "intro": "用函数设置html值，函数传入两个参数，(oldContent , index)",
+                "syntax": "$(selector).html(function(oldContent, index))",
+                "arg": [
+                    {
+                        "_name": "function(oldContent, index)",
+                        "_type": "Function",
+                        "_intro": "<dl><dt>oldContent</dt><dd>修改前的innerHTML值</dd><dt>index</dt><dd>元素位于列表中的索引，从0开始</dd></dl>"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "text",
+        "usage": [
+            {
+                "intro": "返回匹配结果中第一个元素的文本值，text方法会去除内部标签，但不去除标签内容",
+                "syntax": "$(selector).text()"
+            }, {
+                "intro": "对匹配结果所有元素设置innerHTML值",
+                "syntax": "$(selector).text(value)",
+                "arg": [
+                    {
+                        "_name": "value",
+                        "_type": "String",
+                        "_intro": "innerHTML值，特殊符号需要转义"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "append",
+        "usage": [
+            {
+                "intro": "在匹配元素后面插入内容",
+                "syntax": "$(selector).append(content)",
+                "arg": [
+                    {
+                        "_name": "content",
+                        "_type": "String | dmc Object | DOM Element",
+                        "_intro": "需要插入的内容"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "wrap",
+        "usage": [
+            {
+                "intro": "为匹配元素添加包裹标签",
+                "syntax": "$(selector).wrap(name)",
+                "arg": [
+                    {
+                        "_name": "name",
+                        "_type": "String",
+                        "_intro": "标签名，如：a"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "before",
+        "usage": [
+            {
+                "intro": "在匹配元素之前插入内容，可以指定位置",
+                "syntax": "$(selector).before(content[, pos])",
+                "arg": [
+                    {
+                        "_name": "content",
+                        "_type": "String",
+                        "_intro": "要插入的内容"
+                    }, {
+                        "_name": "pos",
+                        "_type": "String",
+                        "_intro": "可选，插入的位置，只能为in 或 out，默认为in，例：^&lt;p&gt;*test&lt;\/p&gt;<dl><dt>in</dt><dd>在例子中*位置插入</dd><dt>out</dt><dd>在例子中^位置插入</dd></dl>"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "after",
+        "usage": [
+            {
+                "intro": "在匹配元素之后插入内容，可以指定位置",
+                "syntax": "$(selector).after(content[, pos])",
+                "arg": [
+                    {
+                        "_name": "content",
+                        "_type": "String",
+                        "_intro": "要插入的内容"
+                    }, {
+                        "_name": "pos",
+                        "_type": "String",
+                        "_intro": "可选，插入的位置，只能为in 或 out，默认为in，例：&lt;p&gt;test*&lt;\/p&gt;^<dl><dt>in</dt><dd>在例子中*位置插入</dd><dt>out</dt><dd>在例子中^位置插入</dd></dl>"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "css",
+        "usage": [
+            {
+                "intro": "返回匹配结果中第一个元素的css值",
+                "syntax": "$(selector).css(property)",
+                "arg": [
+                    {
+                        "_name": "property",
+                        "_type": "String",
+                        "_intro": "css名，与css文件属性名写法一致，如：font-size"
+                    }
+                ]
+            }, {
+                "intro": "对匹配结果所有元素设置css值",
+                "syntax": "$(selector).css(property, value)",
+                "arg": [
+                    {
+                        "_name": "property",
+                        "_type": "String",
+                        "_intro": "css名，与css文件属性名写法一致，如：font-size"
+                    }, {
+                        "_name": "value",
+                        "_type": "String",
+                        "_intro": "css属性值，若不带单位的话默认为px"
+                    }
+                ]
+            }, {
+                "intro": "对匹配结果所有元素设置多个css值",
+                "syntax": "$(selector).css({property: value[, property: value]})",
+                "arg": [
+                    {
+                        "_name": "{property: value}",
+                        "_type": "Object",
+                        "_intro": "包含要设置的属性值 名/值 对象\n如： {\"color\": \"red\", \"font-size\": \"16px\"}"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "each",
+        "usage": [
+            {
+                "intro": "遍历匹配集合，并调用指定函数",
+                "syntax": "$(selector).each(function(index, element))",
+                "arg": [
+                    {
+                        "_name": "function(index, element)",
+                        "_type": "Function",
+                        "_intro": "对每个元素调用的函数，传入两个参数<dl><dt>index</dt><dd>元素位于匹配集合中的索引，从0开始</dd><dt>element</dt><dd>当前DOM元素</dd></dl>"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "show",
+        "usage": [
+            {
+                "intro": "显示匹配元素",
+                "syntax": "$(selector).show()"
+            }
+        ]
+    }, {
+        "name": "hide",
+        "usage": [
+            {
+                "intro": "隐藏匹配元素",
+                "syntax": "$(selector).hide()"
+            }
+        ]
+    }, {
+        "name": "bind",
+        "usage": [
+            {
+                "intro": "为匹配元素绑定事件处理函数",
+                "syntax": "$(selector).bind(type, callback)",
+                "arg": [
+                    {
+                        "_name": "type",
+                        "_type": "String",
+                        "_intro": "事件类型，只能是标准事件类型，如：click"
+                    }, {
+                        "_name": "callback",
+                        "_type": "Function",
+                        "_intro": "事件触发时调用的处理函数"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "click",
+        "usage": [
+            {
+                "intro": "为匹配元素绑定点击事件",
+                "syntax": "$(selector).click(callback)",
+                "arg": [
+                    {
+                        "_name": "callback",
+                        "_type": "Function",
+                        "_intro": "点击事件触发时调用的处理函数"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "data",
+        "usage": [
+            {
+                "intro": "返回匹配结果中第一个元素的附加数据，不存在则返回null",
+                "syntax": "$(selector).data(name)",
+                "arg": [
+                    {
+                        "_name": "name",
+                        "_type": "String",
+                        "_intro": "附加数据名"
+                    }
+                ]
+            }, {
+                "intro": "为匹配元素附加数据",
+                "syntax": "$(selector).data(name, value)",
+                "arg": [
+                    {
+                        "_name": "name",
+                        "_type": "String",
+                        "_intro": "附加数据名"
+                    }, {
+                        "_name": "value",
+                        "_type": "String",
+                        "_intro": "数据值"
+                    }
+                ]
+            }, {
+                "intro": "传入对象为匹配元素附加多个数据",
+                "syntax": "$(selector).data({name: value[, name: value]})",
+                "arg": [
+                    {
+                        "_name": "{name: value[, name: value]}",
+                        "_type": "Object",
+                        "_intro": "附加数据对象"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "extend",
+        "usage": [
+            {
+                "intro": "扩展原型方法",
+                "syntax": "$().extend(source[, overwrite])",
+                "arg": [
+                    {
+                        "_name": "source",
+                        "_type": "Object",
+                        "_intro": "待添加的对象"
+                    }, {
+                        "_name": "overwirte",
+                        "_type": "Boolean",
+                        "_intro": "可选，是否覆盖原型中已存在的方法，默认为true"
+                    }
+                ]
+            }, {
+                "intro": "扩展全局方法",
+                "syntax": "$.extend(source[, target ][,overwrite])",
+                "arg": [
+                    {
+                        "_name": "source",
+                        "_type": "Object",
+                        "_intro": "待添加的对象"
+                    }, {
+                        "_name": "target",
+                        "_type": "Object",
+                        "_intro": "可选，指定的目标对象，默认为dmc全局对象"
+                    }, {
+                        "_name": "overwirte",
+                        "_type": "Boolean",
+                        "_intro": "可选，是否覆盖原型中已存在的方法，默认为true"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "type",
+        "usage": [
+            {
+                "intro": "返回指定目标的类型，等同于typeof",
+                "syntax": "$.type(obj)",
+                "arg": [
+                    {
+                        "_name": "obj",
+                        "_type": "Any",
+                        "_intro": "需要测试的目标"
+                    }
+                ]
+            }, {
+                "intro": "测试目标是否为指定类型",
+                "syntax": "$.type(obj, type)",
+                "arg": [
+                    {
+                        "_name": "obj",
+                        "_type": "Any",
+                        "_intro": "需要测试的目标"
+                    }, {
+                        "_name": "type",
+                        "_type": "String",
+                        "_intro": "指定的类型，如 string"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "instance",
+        "usage": [
+            {
+                "intro": "测试目标是否为指定对象的实例",
+                "syntax": "$.instance(obj, objName)",
+                "arg": [
+                    {
+                        "_name": "obj",
+                        "_type": "Any",
+                        "_intro": "需要测试的目标"
+                    }, {
+                        "_name": "objName",
+                        "_type": "Object",
+                        "_intro": "指定的类型，如 dmc"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "isUndefined",
+        "usage": [
+            {
+                "intro": "测试目标是否为undefined",
+                "syntax": "$.isUndefined(obj)"
+            }
+        ]
+    }, {
+        "name": "isFunction",
+        "usage": [
+            {
+                "intro": "测试目标是否为Function",
+                "syntax": "$.isFunction(obj)"
+            }
+        ]
+    }, {
+        "name": "isArray",
+        "usage": [
+            {
+                "intro": "测试目标是否为Array",
+                "syntax": "$.isArray(obj)"
+            }
+        ]
+    }, {
+        "name": "serialize",
+        "usage": [
+            {
+                "intro": "表单序列化，返回标准的查询字符串",
+                "syntax": "$.serialize(form)",
+                "arg": [
+                    {
+                        "_name": "form",
+                        "_type": "DOM Element",
+                        "_intro": "需要序列化的表单元素，只能传入一个，不能传入集合"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "createXHR",
+        "usage": [
+            {
+                "intro": "返回AJAX请求对象,IE下返回Acticve对象",
+                "syntax": "$.Ajax.createXHR()"
+            }
+        ]
+    }, {
+        "name": "isReady",
+        "usage": [
+            {
+                "intro": "测试请求状态是否为指定值",
+                "syntax": "$.Ajax.isReady(xhr, status, readyState)",
+                "arg": [
+                    {
+                        "_name": "xhr",
+                        "_type": "XMLHttpRequest | Microsoft.XMLHTTP",
+                        "_intro": "待测试的XHR对象"
+                    }, {
+                        "_name": "status",
+                        "_type": "Number",
+                        "_intro": "可选，HTTP状态码，默认为200"
+                    }, {
+                        "_name": "readyState",
+                        "_type": "Number",
+                        "_intro": "可选，请求状态码，默认为4"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "get",
+        "usage": [
+            {
+                "intro": "发起GET请求",
+                "syntax": "$.Ajax.get(url, function(data))",
+                "arg": [
+                    {
+                        "_name": "url",
+                        "_type": "String",
+                        "_intro": "GET请求的url地址"
+                    }, {
+                        "_name": "function(data)",
+                        "_type": "Function",
+                        "_intro": "请求完成时调用的函数，data为responseText"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "post",
+        "usage": [
+            {
+                "intro": "发起POSE请求",
+                "syntax": "$.Ajax.post(url, data, function(data))",
+                "arg": [
+                    {
+                        "_name": "url",
+                        "_type": "String",
+                        "_intro": "GET请求的url地址"
+                    }, {
+                        "_name": "function(data)",
+                        "_type": "Function",
+                        "_intro": "请求完成时调用的函数，data为responseText"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "add",
+        "usage": [
+            {
+                "intro": "为目标元素添加事件",
+                "syntax": "$.Event.add(element, type, function())",
+                "arg": [
+                    {
+                        "_name": "element",
+                        "_type": "DOM Element",
+                        "_intro": "目标DOM元素"
+                    }, {
+                        "_name": "type",
+                        "_type": "String",
+                        "_intro": "事件类型，只能是标准类型，如click"
+                    }, {
+                        "_name": "function()",
+                        "_type": "Function",
+                        "_intro": "事件处理函数"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "remove",
+        "usage": [
+            {
+                "intro": "为目标元素移除事件",
+                "syntax": "$.Event.remove(element, type, function())",
+                "arg": [
+                    {
+                        "_name": "element",
+                        "_type": "DOM Element",
+                        "_intro": "目标DOM元素"
+                    }, {
+                        "_name": "type",
+                        "_type": "String",
+                        "_intro": "事件类型，只能是标准类型，如click"
+                    }, {
+                        "_name": "function()",
+                        "_type": "Function",
+                        "_intro": "事件处理函数"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "get",
+        "usage": [
+            {
+                "intro": "返回跨浏览器event对象",
+                "syntax": "$.Event.get()"
+            }
+        ]
+    }, {
+        "name": "target",
+        "usage": [
+            {
+                "intro": "返回跨浏览器触发事件的DOM元素",
+                "syntax": "$.Event.target()"
+            }
+        ]
+    }, {
+        "name": "preventDefault",
+        "usage": [
+            {
+                "intro": "跨浏览器阻止默认行为",
+                "syntax": "$.Event.preventDefault()"
+            }
+        ]
+    }, {
+        "name": "stopPropagation",
+        "usage": [
+            {
+                "intro": "跨浏览器阻止事件冒泡",
+                "syntax": "$.Event.stopPropagationt()"
+            }
+        ]
+    }
+]

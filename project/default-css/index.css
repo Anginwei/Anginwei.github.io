@@ -1,0 +1,47 @@
+body {
+    text-shadow: 1px 1px 0 #FFF;
+}
+
+header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+}
+
+header>h1 {
+    font-size: 4em;
+}
+
+header>p {
+    font-size: 1.5em;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.style-wrap {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    border: 1px solid #EEE;
+    border-radius: 5px;
+}
+
+footer {
+    padding-top: 10px;
+    border-top: 4px solid #DDD;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+	    width: 100%;
+	    padding-left: 5%;
+	    padding-right: 5%;
+	}
+}
