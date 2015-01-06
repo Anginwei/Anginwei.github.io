@@ -44,7 +44,7 @@
     blockName: "data-name", // 每个标签与内容的映射属性名
     switchMode: "click" // 标签切换模式，"click"或"mouseover"
     swtichAnim: null, // 切换时，标签动画函数，传入当前内容，目标内容，当前标签，目标标签
-    animAuto: true, // 切换时，标签是否自动切换，深度定制切换效果请设置为false
+    tabAuto: true, // 切换时，标签是否自动切换，深度定制切换效果请设置为false
     autoSwitch: 0 // 自动切换间隔，0为不自动切换，单位秒
 }</code></pre>
 			</section>
@@ -154,7 +154,7 @@ $demo.Wtabbar("remove", demoItem2);</code></pre>
 			<section>
 				<h2>自定义切换效果</h2>
 				<p>配置参数中switchAnim可以设置为函数， Wtabbar为这个函数传入4个DOM元素，分别是：当前内容，目标内容，当前标签，目标标签。</p>
-				<p>标签的切换Wtabbar会自己进行，动画效果主要控制内容块。</p>
+				<p>标签的自动切换由tabAuto参数决定，一般情况下动画效果主要控制内容块。</p>
 				<p>下面是简单的淡入淡出效果，更多效果可以自行实现，Wtabbar追求自由定制。</p>
 			</section>
 			<pre><code class="language-javascript">$(".tb:eq(3)").Wtabbar({
