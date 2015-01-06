@@ -17,7 +17,9 @@ h2 {
 .page-header h1 {
     font-size: 4em;
     color: #1C9AD5;
-    text-shadow: 0 5px 20px #FFFF00;
+    text-shadow: 0 5px 10px #FFFF00;
+    -webkit-animation: header-effect 1s infinite alternate;
+    animation: header-effect 1s infinite alternate;
 }
 
 .page-header p {
@@ -59,12 +61,10 @@ h2 {
 }
 
 div[data-refer] {
-    height: 43px;
     margin-bottom: 20px;
     padding: 10px 10px;
     border: 1px solid #DDD;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-radius: 4px;
     background-color: #F0F0F0;
 }
 
@@ -78,6 +78,24 @@ footer {
     text-align: center;
 }
 
+/* 页头动画 */
+@-webkit-keyframes header-effect {
+	from {
+	    text-shadow: 0 5px 10px #FFFF00;
+	}
+	to {
+	    text-shadow: 0 10px 50px #FFFF00;
+	}
+}
+
+@keyframes header-effect {
+    from {
+        text-shadow: 0 5px 20px #FFFF00;
+    }
+    to {
+        text-shadow: 0 5px 50px #FFFF00;
+    }
+}
 
 /* 内容容器，默认桌面设备 */
 .container {

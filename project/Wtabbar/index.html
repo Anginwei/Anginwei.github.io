@@ -6,9 +6,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Wtabbar</title>
-		<!--[if lte IE8]>
+		<!--[if lte IE 8]>
             <script type="text/javascript">
-                alert("页面的语法高亮库不支持使用IE8及以下版本，请更换浏览器，抵制旧版IE,支持标准");
+                alert("页面的语法高亮库不支持使用IE8及以下版本，请更换浏览器");
             </script>
         <![endif]-->
 		<link rel="stylesheet" type="text/css" href="../../css/default.css" />
@@ -17,17 +17,18 @@
 	</head>
 
 	<body>
-	    <!-- header -->
+		<!-- header -->
 		<header class="page-header">
 			<div class="container">
 				<div class="header-center">
 					<h1>Wtabbar</h1>
-					<p>多实例标签栏插件，可动态创建或删除标签</p>
+					<p>简单的多功能标签栏</p>
 				</div>
 			</div>
 		</header>
 		<!-- content -->
 		<div class="container">
+			<!-- 引入 -->
 			<section>
 				<h2>引入</h2>
 				<p>引入Wtabbar之前务必先引入JQuery</p>
@@ -39,40 +40,44 @@
 				<p>可以传入一个配置对象，覆盖默认配置，跟大多是JQuery插件一样，以下是默认设置：</p>
 				<pre><code class="language-javascript">{
     activeClass: "active", // 处于激活状态标签的类名
-    curItem: 0, // 当前默认激活状态标签的索引位置
     referName: "data-refer", // 多个实例中，关联内容块与标签栏的属性名，推荐HTML5的data-*，其他名称也可以正常使用
-    blockName: "data-name", // 区别不同标签内容的属性名，去标签的文本内容一致
+    blockName: "data-name", // 每个标签与内容的映射属性名
     switchMode: "click" // 标签切换模式，"click"或"mouseover"
+    swtichAnim: null, // 切换时，标签动画函数，传入当前内容，目标内容，当前标签，目标标签
+    animAuto: true, // 切换时，标签是否自动切换，深度定制切换效果请设置为false
+    autoSwitch: 0 // 自动切换间隔，0为不自动切换，单位秒
 }</code></pre>
 			</section>
+			<!-- HTML结构 -->
 			<section>
 				<h2>HTML结构</h2>
-				<p>Wtabbar对应的HTML应有如下结构，类名为相同的ul可以有多个，但data-refer属性应一一对应</p>
+				<p>Wtabbar对应的HTML应有如下结构，类名为相同的ul可以有多个，但data-refer属性应一一对应。li标签中可以包含a标签，激活效果的类将加载到li上。</p>
 				<pre><code class="language-markup">&lt;!-- 标签列表 --&gt;
 &lt;ul class="tb" data-refer="demoBlock1"&gt;
-    &lt;li&gt;item1&lt;/li&gt;
-    &lt;li&gt;item2&lt;/li&gt;
-    &lt;li&gt;item3&lt;/li&gt;
+    &lt;li data-name="item1"&gt;item1&lt;/li&gt;
+    &lt;li data-name="item2"&gt;item2&lt;/li&gt;
+    &lt;li data-name="item3"&gt;item3&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- 标签内容块 --&gt;
-&lt;div data-refer=&quot;demoBlock1&quot;&gt;
-	&lt;div data-name=&quot;item1&quot;&gt;content1&lt;/div&gt;
-	&lt;div data-name=&quot;item2&quot;&gt;content2&lt;/div&gt;
-	&lt;div data-name=&quot;item3&quot;&gt;content3&lt;/div&gt;
+&lt;div data-refer="demoBlock1"&gt;
+	&lt;div data-name="item1"&gt;content1&lt;/div&gt;
+	&lt;div data-name="item2"&gt;content2&lt;/div&gt;
+	&lt;div data-name="item3"&gt;content3&lt;/div&gt;
 &lt;/div&gt;
 &lt;!-- 标签列表 --&gt;
 &lt;ul class="tb" data-refer="demoBlock2"&gt;
-    &lt;li&gt;item1&lt;/li&gt;
-    &lt;li&gt;item2&lt;/li&gt;
-    &lt;li&gt;item3&lt;/li&gt;
+    &lt;li data-name="item1"&gt;item1&lt;/li&gt;
+    &lt;li data-name="item2"&gt;item2&lt;/li&gt;
+    &lt;li data-name="item3"&gt;item3&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- 标签内容块 --&gt;
-&lt;div data-refer=&quot;demoBlock2&quot;&gt;
-    &lt;div data-name=&quot;item1&quot;&gt;content1&lt;/div&gt;
-    &lt;div data-name=&quot;item2&quot;&gt;content2&lt;/div&gt;
-    &lt;div data-name=&quot;item3&quot;&gt;content3&lt;/div&gt;
+&lt;div data-refer="demoBlock2"&gt;
+    &lt;div data-name="item1"&gt;content1&lt;/div&gt;
+    &lt;div data-name="item2"&gt;content2&lt;/div&gt;
+    &lt;div data-name="item3"&gt;content3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</section>
+			<!-- 初始化 -->
 			<section>
 				<h2>初始化</h2>
 				<p>可以像下面这样初始化Wtabbar，均使用默认设置。</p>
@@ -80,9 +85,9 @@
 				<p>这样，一个最简单的Wtabbar就可以工作了，demo效果如下：</p>
 				<div>
 					<ul class="tb" data-refer="demoBlock1">
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
+						<li data-name="item1">item1</li>
+						<li data-name="item2">item2</li>
+						<li data-name="item3">item3</li>
 					</ul>
 					<div data-refer="demoBlock1">
 						<div data-name="item1">content1</div>
@@ -90,9 +95,9 @@
 						<div data-name="item3">content3</div>
 					</div>
 					<ul class="tb" data-refer="demoBlock2">
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
+						<li data-name="item1">item1</li>
+						<li data-name="item2">item2</li>
+						<li data-name="item3">item3</li>
 					</ul>
 					<div data-refer="demoBlock2">
 						<div data-name="item1">content1</div>
@@ -101,41 +106,81 @@
 					</div>
 				</div>
 			</section>
+			<!-- API -->
 			<section>
-				<h2>动态修改标签</h2>
-				<p>这种情况多应用于后台管理系统，可以像浏览器一样增加标签数，已存在的标签不会重复创建。标签内容块可以先写好，也可以动态生成。以下是HTML结构：</p>
+				<h2>API：create remove switchTab</h2>
+				<p>create remove多应用于后台管理系统，可以像浏览器一样增加标签数，已存在的标签不会重复创建。标签内容块可以先写好，也可以动态生成。</p>
+				<p>switchTab可以绑定在按钮点击事件上，用于切换标签。</p>
+				<p>以下是HTML结构：</p>
 				<pre><code class="language-markup">&lt;!-- 标签列表 --&gt;
 &lt;ul class="tb" data-refer="demoBlock3"&gt;
-    &lt;li&gt;item1&lt;/li&gt;
-    &lt;li&gt;item2&lt;/li&gt;
+    &lt;li data-name="item1"&gt;item1&lt;/li&gt;
+    &lt;li id="demo-item2" data-name="item2"&gt;item2&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- 标签内容块 --&gt;
-&lt;div data-refer=&quot;demoBlock3&quot;&gt;
-    &lt;div data-name=&quot;item1&quot;&gt;content1&lt;/div&gt;
-    &lt;div data-name=&quot;item2&quot;&gt;content2&lt;/div&gt;
-    &lt;div data-name=&quot;item3&quot;&gt;content3&lt;/div&gt;
+&lt;div data-refer="demoBlock3"&gt;
+    &lt;div data-name="item1"&gt;content1&lt;/div&gt;
+    &lt;div data-name="item2"&gt;content2&lt;/div&gt;
+    &lt;div data-name="item3"&gt;content3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-				<p>Wtabbar的API方法包括create(name) remove(name)，内容块的data-name属性应与方法参数对应，否则切换无效。应注意JQuery选择的范围。</p>
-				<pre><code class="language-javascript">$(".tb:eq(2)").Wtabbar("create", "item3");</code></pre>
-				<p>说好的demo来了：</p>
+				<p>create方法需要传入新标签的html字符串；remove方法需要传入关联的属性值，如demo中data-name的值。</p>
+				<p>switch需要传入目标标签的dom元素，或者"previous","next"字符串。</p>
+				<p>可以像下面这样调用API方法：</p>
+				<pre><code class="language-javascript">$demo = $(".tb:eq(2)");
+demoItem2 = $("#demo-item2").get(0);
+$demo.Wtabbar("create", "&lt;li data-name=\"item3\"&gt;item3&lt;/li&gt;");
+$demo.Wtabbar("remove", "item3");
+$demo.Wtabbar("switchTab", "previous");
+$demo.Wtabbar("remove", demoItem2);</code></pre>
+				<p>简单的demo：</p>
 				<div>
-                    <ul class="tb" data-refer="demoBlock3">
-                        <li>item1</li>
-                        <li>item2</li>
-                    </ul>
-                    <div data-refer="demoBlock3">
-                        <div data-name="item1">content1</div>
-                        <div data-name="item2">content2</div>
-                        <div data-name="item3">content3</div>
-                    </div>
-                    <button>创建item3</button>
-                    <button>删除item3</button>
+					<ul class="tb" data-refer="demoBlock3">
+						<li data-name="item1">item1</li>
+						<li id="demo-item2" data-name="item2">item2</li>
+					</ul>
+					<div data-refer="demoBlock3">
+						<div data-name="item1">content1</div>
+						<div data-name="item2">content2</div>
+						<div data-name="item3">content3</div>
+					</div>
+					<button id="btn-create">创建item3</button>
+					<button id="btn-remove">删除item3</button>
+					<button id="btn-previous">前一个</button>
+					<button id="btn-next">后一个</button>
+					<button id="btn-item2">切换至item2</button>
 				</div>
 			</section>
+			<!-- 切换效果 -->
+			<section>
+				<h2>自定义切换效果</h2>
+				<p>配置参数中switchAnim可以设置为函数， Wtabbar为这个函数传入4个DOM元素，分别是：当前内容，目标内容，当前标签，目标标签。</p>
+				<p>标签的切换Wtabbar会自己进行，动画效果主要控制内容块。</p>
+				<p>下面是简单的淡入淡出效果，更多效果可以自行实现，Wtabbar追求自由定制。</p>
+			</section>
+			<pre><code class="language-javascript">$(".tb:eq(3)").Wtabbar({
+    switchAnim: function(curCon, tarCon) {
+        $(curCon).fadeOut(500, function() { // JavaScript是单线程，因此要使用回调函数，使用其他动画方法也应注意
+            $(tarCon).fadeIn(500);
+        });
+    }
+})</code></pre>
+			<p>demo：</p>
+			<div>
+				<ul class="tb" data-refer="demoBlock4">
+					<li data-name="item1">item1</li>
+					<li data-name="item2">item2</li>
+					<li data-name="item3">item2</li>
+				</ul>
+				<div data-refer="demoBlock4">
+					<div data-name="item1">content1</div>
+					<div data-name="item2">content2</div>
+					<div data-name="item3">content3</div>
+				</div>
+			</div>
 			<!-- footer -->
 			<footer>
 				<hr />
-				<p>Created by <a href="anginwei.github.io">Anginwei</a>
+				<p>Created by <a href="https://anginwei.github.io/" target="_blank">Anginwei</a>
 				</p>
 			</footer>
 		</div>
@@ -145,13 +190,30 @@
 	<script src="../../js/prism.js" type="text/javascript"></script>
 	<script src="Wtabbar.js" type="text/javascript"></script>
 	<script type="text/javascript">
+		var $demo = $(".tb:eq(2)");
 		$(".tb").Wtabbar();
-		$("button:eq(0)").click(function () {
-			$(".tb:eq(2)").Wtabbar("create", "item3");
+		$("#btn-create").click(function() {
+			$demo.Wtabbar("create", "<li data-name=\"item3\">item3</li>");
 		});
-		$("button:eq(1)").click(function () {
-            $(".tb:eq(2)").Wtabbar("remove", "item3");
-        });
+		$("#btn-remove").click(function() {
+			$demo.Wtabbar("remove", "item3");
+		});
+		$("#btn-previous").click(function() {
+			$demo.Wtabbar("switchTab", "previous");
+		});
+		$("#btn-next").click(function() {
+			$demo.Wtabbar("switchTab", "next");
+		});
+		$("#btn-item2").click(function() {
+			$demo.Wtabbar("switchTab", $("#demo-item2").get(0));
+		});
+		$(".tb:eq(3)").Wtabbar({
+			switchAnim: function(curCon, tarCon) {
+				$(curCon).fadeOut(500, function() {
+					$(tarCon).fadeIn(500);
+				});
+			}
+		});
 	</script>
 
 </html>
