@@ -1,0 +1,368 @@
+@import 'var.less';
+
+/******* 全局 */
+#content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#content > div {
+    /* 背景全屏固定 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 6.5em 1em 0;
+}
+
+body {
+    background-color: #333;
+    color: @text-color;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .3);
+    font-size: 16px;
+}
+
+a {
+    color: @link-color;
+    &:hover {
+        color: @text-color;
+        .transition();
+    }
+}
+
+/******* 导航 */
+#nav-list {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: @nav-font-size;
+    text-align: center;
+
+    > li {
+        display: inline-block;
+        padding: 10px 10px 5px;
+        cursor: pointer;
+
+        &:hover, &.active {
+            text-shadow: 1px 1px 30px #FFFF00;
+            text-decoration: none;
+            .transition();
+        }
+    }
+
+    span {
+        display: block;
+        .nav-icon();
+        font-size: @nav-icon-size;
+    }
+    a {
+        display: block;
+        color: @text-color;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+/******* 页脚 */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    > div {
+        float: left;
+        width: 20%;
+        height: 10px;
+    }
+
+    > div:nth-of-type(1) {
+        background-color: @info-bg-color;
+    }
+    > div:nth-of-type(2) {
+        background-color: @skill-bg-color;
+    }
+    > div:nth-of-type(3) {
+        background-color: @exp-bg-color;
+    }
+    > div:nth-of-type(4) {
+        background-color: @works-bg-color;
+    }
+    > div:nth-of-type(5) {
+        background-color: @about-bg-color;
+    }
+}
+
+/******* 信息 */
+#info {
+    background-color: @info-bg-color;
+}
+
+.info-portrait {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.5em;
+    box-shadow: 0 5px 30px #ddd;
+    border-radius: 50%;
+}
+
+/******* 技能 */
+#skill {
+    background-color: @skill-bg-color;
+}
+
+#skill-chart {
+    max-width: 450px;
+    margin: 0 auto 1.5em;
+    padding: 0;
+    font-size: 120%;
+    list-style: none;
+    text-align: center;
+
+    > li {
+        display: none;
+
+        &.active {
+            display: inline-block;
+        }
+    }
+}
+
+.skill-chart-prev,
+.skill-chart-next {
+    .fa-icon();
+    font-size: 120%;
+    cursor: pointer;
+    -moz-user-select: none;
+}
+
+.skill-chart-prev {
+    float: left;
+    -webkit-animation: shakeLeft 1s infinite alternate;
+    animation: shakeLeft 1s infinite alternate;
+}
+
+.skill-chart-next {
+    float: right;
+    -webkit-animation: shakeRight 1s infinite alternate;
+    animation: shakeRight 1s infinite alternate;
+}
+
+#skill-chart-exp,
+#skill-chart-other {
+    display: block;
+    margin: 0 auto 1.5em;
+}
+
+/******* 经历 */
+#exp {
+    background-color: @exp-bg-color;
+}
+
+#exp-list {
+    position: relative;
+    > dd {
+        position: relative;
+        > div {
+            margin-bottom: 2em;
+            padding-left: 8em;
+
+            > div {
+                padding: 2em 1.5em;
+                background-color: #0ba3da;
+                border-radius: 5px;
+            }
+            i {
+                display: block;
+                margin-bottom: 0.5em;
+                font-style: normal;
+
+                // 图标
+                &:before {
+                    content: '\f041';
+                    float: left;
+                    margin-right: 0.5em;
+                    line-height: 1.6;
+                    .fa-icon();
+                    -webkit-animation: shakeUp 1s infinite alternate;
+                    animation: shakeUp 1s infinite alternate;
+                }
+            }
+        }
+    }
+
+    // 贯穿线
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 5.7em;
+        z-index: 2;
+        width: 2px;
+        height: 100%;
+        background-color: @text-color;
+    }
+
+    span {
+        position: absolute;
+
+        // 点
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0.5em;
+            right: -2.1em;
+            z-index: 2;
+            width: 10px;
+            height: 10px;
+            background-color: darken(#0ba3da, 5%);
+            border-radius: 50%;
+            outline: 8px solid @exp-bg-color;
+        }
+        // 箭头
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0.3em;
+            right: -4.1em;
+            z-index: 2;
+            width: 0;
+            height: 0;
+            border: 8px solid transparent;
+            border-right-color: #0ba3da;
+        }
+    }
+    // 开始时间
+    span:nth-of-type(1) {
+        top: 1.5em;
+    }
+    // 结束时间
+    span:nth-of-type(2) {
+        bottom: 1.5em;
+    }
+}
+
+/******* 作品 */
+#works {
+    background-color: @works-bg-color;
+}
+
+.thumbnail {
+    float: left;
+    max-width: 260px;
+    margin:0 0.75em 1.5em;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgba(100, 100, 100, .5);
+    text-align: center;
+
+    img {
+        width: 250px;
+        height: 120px;
+    }
+
+    .intro {
+        height: 200px;
+        padding: 0 1em;
+        text-shadow: none;
+
+
+        h3 {
+            line-height: 1;
+            color: #285E8E;
+
+            &:hover {
+                .transition();
+                color: lighten(#285E8E, 20%);
+            }
+            small {
+                color: #999;
+            }
+        }
+
+        a {
+            display: block;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        > p {
+            color: #333;
+        }
+    }
+}
+
+/******* 关于 */
+#about {
+    background-color: @about-bg-color;
+
+    .intro {
+        height: 150px;
+    }
+
+    h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+}
+
+/***** 通用类 */
+.center-block {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.table {
+    width: auto;
+    margin: 0 auto 1.5em;
+    > tbody > tr > td {
+        border-top: none;
+        text-align: center;
+        &:first-child {
+            text-align: right;
+            font-weight: 500;
+            border-right: @table-border;
+        }
+    }
+
+    > tbody > tr + tr {
+        border-top: @table-border;
+    }
+}
+
+/***** 响应调整 */
+@media screen and (max-width: 450px) {
+    body {
+        font-size: 14px;
+    }
+
+    #skill-chart-exp,
+    #skill-chart-other {
+        height: 290px!important;
+        width: 290px!important;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .center-block {
+        max-width: 570px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .thumbnail {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

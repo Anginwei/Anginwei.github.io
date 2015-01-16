@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!--[if lte IE 10]>
+		    <script type="text/javascript">
+		        alert("为了最佳呈现效果，页面使用了CSS动画，未兼容旧浏览器，请更换浏览器以获得正确浏览。\n推荐chrome firefox IE10+");
+		    </script>
+		<[end if]-->
+		<title>求职简历——韦森元</title>
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<ul id="nav-list" data-refer="main">
+			<li data-name="info">
+				<span>&#xf00d4;</span>
+				<a href="#">信息</a>
+			</li>
+			<li data-name="skill">
+				<span>&#xf00ce;</span>
+				<a href="#">技能</a>
+			</li>
+			<li data-name="exp">
+				<span>&#xf0161;</span>
+				<a href="#">经历</a>
+			</li>
+			<li data-name="works">
+				<span>&#xf00ba;</span>
+				<a href="#">作品</a>
+			</li>
+			<li data-name="about">
+				<span>&#xf00ca;</span>
+				<a href="#">关于</a>
+			</li>
+		</ul>
+		<div id="content" data-refer="main">
+			<!-- 信息 -->
+			<div id="info" data-name="info">
+				<div class="center-block">
+					<img class="info-portrait" src="img/portrait.jpg" />
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>姓名</td>
+								<td>韦森元</td>
+							</tr>
+							<tr>
+								<td>出生</td>
+								<td>1989-5-5</td>
+							</tr>
+							<tr>
+								<td>毕业学校</td>
+								<td><a href="http://baike.baidu.com/view/7727.htm" target="_blank">西北农林科技大学</a>
+								</td>
+							</tr>
+							<tr>
+								<td>专业</td>
+								<td>软件工程</td>
+							</tr>
+							<tr>
+								<td>方向</td>
+								<td>web前端</td>
+							</tr>
+							<tr>
+								<td>学历</td>
+								<td>本科</td>
+							</tr>
+							<tr>
+								<td>婚姻状况</td>
+								<td>单身</td>
+							</tr>
+							<tr>
+								<td>技术博客</td>
+								<td><a href="http://www.cnblogs.com/anginwei/" target="_blank">Anginwei</a>
+								</td>
+							</tr>
+							<tr>
+								<td>E-Mail</td>
+								<td>anginwei@foxmail.com</td>
+							</tr>
+							<tr>
+								<td>TEL</td>
+								<td>18565635978</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- 技能 -->
+			<div id="skill" data-name="skill">
+				<div class="center-block">
+					<ul id="skill-chart" data-refer="skill-chart">
+						<span class="skill-chart-prev" onselectstart="return false">&#xf053;</span>
+						<span class="skill-chart-next" onselectstart="return false">&#xf054;</span>
+						<li data-name="exp">专业技能</li>
+						<li data-name="other">其他技能</li>
+					</ul>
+					<div data-refer="skill-chart">
+						<div data-name="exp">
+							<canvas id="skill-chart-exp" width="400" height="400"></canvas>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>HTML</td>
+										<td>能以简洁的结构完成目标</td>
+									</tr>
+									<tr>
+										<td>CSS</td>
+										<td>能处理常见的兼容性问题</td>
+									</tr>
+									<tr>
+										<td>JavaScript</td>
+										<td>了解性能优化、OO、JSON等相关知识</td>
+									</tr>
+									<tr>
+										<td>jQuery</td>
+										<td>熟悉常用API，读过部分源码</td>
+									</tr>
+									<tr>
+										<td>AJAX</td>
+										<td>熟悉基础使用方法</td>
+									</tr>
+									<tr>
+										<td>LESS</td>
+										<td>熟悉大多数语法，对模块分化有一定研究</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div data-name="other">
+							<canvas id="skill-chart-other" width="400" height="400"></canvas>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>沟通</td>
+										<td>能有逻辑的表达自己见解与倾听他人意见</td>
+									</tr>
+									<tr>
+										<td>学习</td>
+										<td>好奇心重，喜欢寻根究底，善用搜索解决问题</td>
+									</tr>
+									<tr>
+										<td>管理</td>
+										<td>有良好的自我时间管理习惯，服从团队管理制度</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 经历 -->
+			<div id="exp" data-name="exp">
+				<div class="center-block">
+					<dl id="exp-list">
+						<dd>
+							<span>2014-06</span>
+							<span>2014-09</span>
+							<div>
+								<div>
+									<i>深圳</i>就职思百德科技有限公司营销3部，参与线上销售团队，负责推广、销售、运营
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<span>2013-01</span>
+							<span>2014-05</span>
+							<div>
+								<div>
+									<i>桂林</i>大四下学期，参股（长辈出资）亲戚在桂林开的店铺，销售门类建材
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<span>2012-10</span>
+							<span>2012-12</span>
+							<div>
+								<div>
+									<i>西安杨凌</i>参加<a href="http://www.cfh.ac.cn/" target="_blank">中国自然标本馆</a>项目团队，负责相关子站（已下线）的页面设计
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<span>2011-09</span>
+							<span>2012-09</span>
+							<div>
+								<div>
+									<i>西安杨凌</i>就任学校艺术团街舞队队长，管理团队，3次执行学校大型晚会演出任务
+								</div>
+							</div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<!-- 作品 -->
+			<div id="works" data-name="works">
+				<div class="center-block clearfix">
+					<div class="thumbnail">
+						<a href="http://anginwei.github.io/project/dmc-api/" target="_blank">
+							<img src="img/thumb-dmc.png" />
+						</a>
+						<div class="intro">
+							<a href="http://anginwei.github.io/project/dmc-api/" target="_blank">
+								<h3>dmc<br /><small>微型JavaScript库</small></h3>
+							</a>
+							<p>dmc的大多数API都仿照jQuery，支持链式调用，虽然一些API的名字跟jQuery一样，但是参数跟返回不同。该链接页面不支持移动设备。</p>
+						</div>
+					</div>
+					<div class="thumbnail">
+						<a href="http://anginwei.github.io/project/default-css/" target="_blank">
+							<img src="img/thumb-default.css.png" />
+						</a>
+						<div class="intro">
+							<a href="http://anginwei.github.io/project/default-css/" target="_blank">
+								<h3>default.css<br /><small>统一浏览器样式</small></h3>
+							</a>
+							<p>default.css只做最少的修改，使常见页面元素有统一的基本样式。修改内容主要包括全局body样式、文字排版、表单、表格。</p>
+						</div>
+					</div>
+					<div class="thumbnail">
+						<a href="http://anginwei.github.io/project/Wtabbar/" target="_blank">
+							<img src="img/thumb-Wtabbar.png" />
+						</a>
+						<div class="intro">
+							<a href="http://anginwei.github.io/project/Wtabbar/" target="_blank">
+								<h3>Wtabbar<br /><small>jQuery插件</small></h3>
+							</a>
+							<p>Wtabbar是一个简单的jQuery标签栏插件，使用方便，可以完成大多数任务。能通过修改参数实现多数具有标签栏行为的控件。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 关于 -->
+			<div id="about" data-name="about">
+				<div class="center-block">
+					<table class="table">
+						<tr>
+							<td>个性</td>
+							<td>普通，熟悉之后会比较开朗，不熟悉会比较闷，人际关系稳定，几乎没与人发生过冲突</td>
+						</tr>
+						<tr>
+							<td>学习</td>
+							<td>求知欲强，慢热，喜欢探求原理，不只满足于拿来就用</td>
+						</tr>
+						<tr>
+							<td>代码</td>
+							<td>强迫症加洁癖，多一个空格或换行，命名结构不统一，缩进不整齐，必须要整改</td>
+						</tr>
+						<tr>
+							<td>缺点</td>
+							<td>理解速度稍慢，但理解之后会比一般人有更深刻的认识</td>
+						</tr>
+						<tr>
+							<td>期望</td>
+							<td>希望能自己能跟优秀的人一起工作，让自己优秀起来，提高技术，未来想逐渐转移动web</td>
+						</tr>
+					</table>
+					<section class="clearfix">
+						<h2>经常光顾的站点</h2>
+						<!-- site-1 -->
+						<div class="thumbnail">
+							<a href="http://www.zhangxinxu.com/wordpress/" target="_blank">
+								<img src="img/thumb-xinkongjian.png" />
+							</a>
+							<div class="intro">
+								<a href="http://www.zhangxinxu.com/wordpress/" target="_blank">
+									<h3>鑫空间</h3>
+								</a>
+								<p>张鑫旭大神的技术博客，特别喜欢他深入探究根本的态度</p>
+							</div>
+						</div>
+						<!-- site-2 -->
+						<div class="thumbnail">
+							<a href="http://www.cnblogs.com/dolphinX/" target="_blank">
+								<img src="img/thumb-dolphin.png" />
+							</a>
+							<div class="intro">
+								<a href="http://www.cnblogs.com/dolphinX/" target="_blank">
+									<h3>dolphinX</h3>
+								</a>
+								<p>有很多实用的技巧总结，深度适中，可以学到很多tips</p>
+							</div>
+						</div>
+						<!-- site-3 -->
+						<div class="thumbnail">
+							<a href="http://www.qianduan.net/" target="_blank">
+								<img src="img/thumb-qianduan.png" />
+							</a>
+							<div class="intro">
+								<a href="http://www.qianduan.net/" target="_blank">
+									<h3>前端观察</h3>
+								</a>
+								<p>大神团队的博客，涉及很多新标准，对学习新知识很有帮助</p>
+							</div>
+						</div>
+						<!-- site-4-->
+						<div class="thumbnail">
+							<a href="http://www.alloyteam.com/" target="_blank">
+								<img src="img/thumb-at.png" />
+							</a>
+							<div class="intro">
+								<a href="http://www.alloyteam.com/" target="_blank">
+									<h3>AlloyTeam</h3>
+								</a>
+								<p>腾讯AlloyTeam的团队博客，有很多新奇项目，内容比较深，他们自己做了很多有意思的项目</p>
+							</div>
+						</div>
+						<!-- site-5-->
+						<div class="thumbnail">
+							<a href="http://cdc.tencent.com/" target="_blank">
+								<img src="img/thumb-cdc.png" />
+							</a>
+							<div class="intro">
+								<a href="http://cdc.tencent.com/" target="_blank">
+									<h3>腾讯CDC</h3>
+								</a>
+								<p>交互设计团队，大学时代光顾比较多，之后较少</p>
+							</div>
+						</div>
+						<!-- site-5-->
+						<div class="thumbnail">
+							<a href="http://lea.verou.me/" target="_blank">
+								<img src="img/thumb-lea.png" />
+							</a>
+							<div class="intro">
+								<a href="http://lea.verou.me/" target="_blank">
+									<h3>LeaVerou</h3>
+								</a>
+								<p>Lea Verou的个人站点，里面有很多实用的个人项目，各种高大上</p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</footer>
+	</body>
+
+	<script src="js/headroom.js" type="text/javascript"></script>
+	<script src="js/Chart.js" type="text/javascript"></script>
+	<script src="js/Wtabbar.js" type="text/javascript"></script>
+	<script src="js/index.js" type="text/javascript"></script>
+
+</html>

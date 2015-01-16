@@ -166,7 +166,7 @@
 						$curCon.toggle();
 						$tarCon.toggle();
 					}
-					// 修改位置
+					// 修改指针位置
 					methods.changeOption.call(this, "curTab", target);
 				}
 			});
