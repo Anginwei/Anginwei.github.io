@@ -327,10 +327,10 @@ footer > div:nth-of-type(5) {
     height: 290px!important;
     width: 290px!important;
   }
-  #exp-list:before {
+  #exp-list span:before {
     right: -4.3em;
   }
-  #exp-list:after {
+  #exp-list span:after {
     right: -2.3em;
   }
 }
