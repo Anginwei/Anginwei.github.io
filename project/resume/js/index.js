@@ -139,7 +139,7 @@
 					strokeColor: "rgba(151,187,205,1)",
 					pointColor: "rgba(151,187,205,1)",
 					pointStrokeColor: "#fff",
-					data: [75, 65, 50, 70, 15, 70]
+					data: [75, 65, 50, 70, 40, 70]
 				}]
 			}, {
 				labels: ["沟通", "学习", "管理"],
