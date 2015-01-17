@@ -39,12 +39,12 @@
 			animState.endTar = false;
 			cur.removeAttr("class");
 			tar.removeAttr("class");
-			$("#content").removeAttr("style");
+			//$("#content").removeAttr("style");
 		}
 
 		// 动画切换控制
 		function switchCtrl($curCon, $tarCon, outClass, inClass) {
-		    $("#content").css("overflow", "hidden");
+		    //$("#content").css("overflow", "hidden");
 			$curCon.addClass("animated " + outClass).one(animEndEvent, function() {
 				$curCon.hide();
 				animState.endCur = true;
