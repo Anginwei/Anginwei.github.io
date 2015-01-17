@@ -327,6 +327,12 @@ footer > div:nth-of-type(5) {
     height: 290px!important;
     width: 290px!important;
   }
+  #exp-list:before {
+    right: -4.3em;
+  }
+  #exp-list:after {
+    right: -2.3em;
+  }
 }
 @media screen and (max-width: 900px) {
   .center-block {
