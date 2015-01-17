@@ -328,10 +328,10 @@ footer > div:nth-of-type(5) {
     width: 290px!important;
   }
   #exp-list span:before {
-    right: -4.3em;
+    right: -4.5em;
   }
   #exp-list span:after {
-    right: -2.3em;
+    right: -2.5em;
   }
 }
 @media screen and (max-width: 900px) {
