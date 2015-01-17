@@ -331,7 +331,7 @@ footer > div:nth-of-type(5) {
     right: -4.4em;
   }
   #exp-list span:after {
-    right: -2.4em;
+    right: -2.3em;
   }
 }
 @media screen and (max-width: 900px) {
