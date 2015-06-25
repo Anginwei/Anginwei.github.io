@@ -1,0 +1,50 @@
+@import 'less/default.less';
+
+body {
+    overflow: hidden;
+    background-size: cover!important;
+}
+
+#before {
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 450px;
+
+    .count {
+        display: inline-block;
+        width: 5em;
+        text-align: center;
+        color: #F92672;
+    }
+
+}
+
+#after {
+    display: none;
+    position: relative;
+    .plr(20px);
+    font-size: 2rem;
+    color: #333;
+    .transition(background-color);
+}
+
+#pages li {
+    .ptb(50px);
+    p {
+        text-indent: 2em;
+        margin-top: 1em;
+    }
+}
+
+.btn {
+    .size(70px, 70px);
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    z-index: 10;
+    .icon-font();
+    color: fade(#333, 50%);
+    font-size: 70px;
+    cursor: pointer;
+}
