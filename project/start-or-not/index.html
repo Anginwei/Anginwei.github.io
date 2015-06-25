@@ -22,7 +22,6 @@
 				</div>
 				<div id="pages">
 					<ul class="clearfix">
-						<!--p1-->
 						<li>
 							<p>恭喜你走过了人生的第一个阶段，从一个坑跳了出来，然后两个月之后跳入另一个坑
 								<img src="img/淫笑.gif" alt="" />
@@ -75,7 +74,7 @@
 
 	<script type="text/javascript">
 		 // 尺寸修正
-		$("#before, #after").height(window.innerHeight);
+		$("#before, #after").css("min-height", window.innerHeight);
 		 // 开始计时
 		count();
 		var tID = setInterval("count()", 1000);
